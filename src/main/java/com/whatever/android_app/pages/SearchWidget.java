@@ -87,6 +87,9 @@ public class SearchWidget extends BaseWidget {
     @FindBy(id="com.android.packageinstaller:id/permission_allow_button")
     private WebElement allowBtn;
 
+    @FindBy(id="com.trivago:id/viewLocationPromptAllowForegroundTextView")
+    private WebElement accesslocationYesBtn;
+
     public SearchWidget(AppiumDriver driver) {
         super(driver);
     }
@@ -166,6 +169,7 @@ public class SearchWidget extends BaseWidget {
 
         waitForElementToAppear(confirmBtn);
         confirmBtn.click();
+        if(accesslocationYesBtn.isDisplayed()){accesslocationYesBtn.click();}
         if(allowBtn.isDisplayed()){allowBtn.click();}
         waitForElementToAppear(searchTribagoHotels);
         searchTribagoHotels.click();
