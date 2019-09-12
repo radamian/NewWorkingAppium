@@ -1,5 +1,5 @@
 package com.whatever.android_app.pages;
-
+import utility.MyLog;
 import com.whatever.android_app.pages.BaseWidget;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
@@ -169,9 +169,20 @@ public class SearchWidget extends BaseWidget {
 
         waitForElementToAppear(confirmBtn);
         confirmBtn.click();
+        MyLog.print("Confirm btn OK");
         if(accesslocationYesBtn.isDisplayed()){accesslocationYesBtn.click();}
         if(allowBtn.isDisplayed()){allowBtn.click();}
+        MyLog.print("Allow btn OK");
+    }
+
+    public void searchHotels(){
+        connect();
         waitForElementToAppear(searchTribagoHotels);
         searchTribagoHotels.click();
+    }
+
+    public void account() {
+        connect();
+
     }
 }
